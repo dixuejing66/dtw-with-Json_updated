@@ -10,6 +10,7 @@ public class Test {
 	//public List<Trajectory> locations;
 
 	public static void main(String[] args) throws Exception {
+		long start = System.currentTimeMillis();
 		DTW dtw = new DTW();
 		Test t = new Test();
 		Trajectory[] t1 = t.readJsonFile();
@@ -19,6 +20,8 @@ public class Test {
 				System.out.println(dtw.calculateDTW(t1[i], t1[j]));
 			}
 		}
+		long end = System.currentTimeMillis();
+		System.out.println("The running time of program is £º " + (end - start) + "ms");
 
 	}
 
@@ -33,6 +36,7 @@ public class Test {
 				JSONArray getJsonArray = jsonObject.getJSONArray("locations");
 
 				int num = getJsonArray.length();
+				System.out.println(num);
 				double[] coordinate1_x = new double[num];
 				double[] coordinate1_y = new double[num];
 				Point[] coordinate1 = new Point[num];
